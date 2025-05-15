@@ -1,0 +1,1 @@
+var saatkacTT_start = new Date(2016,11,26,12,17,07);saatkacTT_startTime = saatkacTT_start.getTime();

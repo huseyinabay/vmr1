@@ -1,0 +1,205 @@
+        <html>
+        <head>
+        <title>Crystal Info</title>
+		
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<!--
+        <meta http-equiv="Content-Type" content="text/html; charset=windows-1254">
+        <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-9">
+		
+		// -->
+
+        <script language="JavaScript">
+<!--
+
+function MM_swapImgRestore() { //v3.0
+  var i,x,a=document.MM_sr; for(i=0;a&&i<a.length&&(x=a[i])&&x.oSrc;i++) x.src=x.oSrc;
+}
+
+function MM_preloadImages() { //v3.0
+  var d=document; if(d.images){ if(!d.MM_p) d.MM_p=new Array();
+    var i,j=d.MM_p.length,a=MM_preloadImages.arguments; for(i=0; i<a.length; i++)
+    if (a[i].indexOf("#")!=0){ d.MM_p[j]=new Image; d.MM_p[j++].src=a[i];}}
+}
+
+function MM_findObj(n, d) { //v4.0
+  var p,i,x;  if(!d) d=document; if((p=n.indexOf("?"))>0&&parent.frames.length) {
+    d=parent.frames[n.substring(p+1)].document; n=n.substring(0,p);}
+  if(!(x=d[n])&&d.all) x=d.all[n]; for (i=0;!x&&i<d.forms.length;i++) x=d.forms[i][n];
+  for(i=0;!x&&d.layers&&i<d.layers.length;i++) x=MM_findObj(n,d.layers[i].document);
+  if(!x && document.getElementById) x=document.getElementById(n); return x;
+}
+
+function MM_swapImage() { //v3.0
+  var i,j=0,x,a=MM_swapImage.arguments; document.MM_sr=new Array; for(i=0;i<(a.length-2);i+=3)
+   if ((x=MM_findObj(a[i]))!=null){document.MM_sr[j++]=x; if(!x.oSrc) x.oSrc=x.src; x.src=a[i+2];}
+}
+
+// -->
+</script>
+<script LANGUAGE="javascript">
+function popup(popup_url, popup_name, winWidth, winHeight){
+  scrL = (screen.width - winWidth) / 2;
+  scrT = ((screen.height - winHeight) / 2);
+  yeni = window.open(popup_url, popup_name, "width="+winWidth+",height="+winHeight+",status=yes,resizable=yes,scrollbars=yes,menubar=yes,top="+scrT+",left="+scrL);
+  yeni.focus();
+}
+</script>
+        <link rel="stylesheet" type="text/css" href="../crystal.css" />
+		 <link rel="stylesheet" type="text/css" href="../bootstrap.min.css"/>
+        </head>
+        <body bgcolor="#FFFFFF" text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+<center>   <form name="sort_me" method="post" action="">
+         <input type="hidden" name="SITE_ID" value="1">
+         <input type="hidden" name="MY_DATE" value="e">
+         <input type="hidden" name="t0" value="01/02/2025">         
+       <input type="hidden" name="t1" value="12/02/2025">         
+       <input type="hidden" name="last" value="-1">         
+       <input type="hidden" name="hh0" value="-1">
+         <input type="hidden" name="hm0" value="-1">
+       <input type="hidden" name="hh1" value="-1">
+         <input type="hidden" name="hm1" value="-1">
+       <input type="hidden" name="hafta" value="3">
+         <input type="hidden" name="record" value="">
+         <input type="hidden" name="type" value="ext">  
+         <input type="hidden" name="calc_type" value="">       
+         <input type="hidden" name="DEPT_ID" value="-1">  
+        <input type="hidden" class="cache1" name="withCache" value="DBwriteCache" >
+        <input type="hidden" name="forceMainTable" VALUE="" >         
+         <input type="hidden" name="sort_type" value="asc">  
+  </form>
+  <script language="JavaScript">
+  function submit_form(sortby){
+    document.all('sort_me').action='/reports/general/report_call_ext.php?act=src&type=ext&SITE_ID=1&order=' + sortby;    
+    document.all('sort_me').submit();
+     }
+  function drill_down(o_id){
+    document.all('sort_me').action='/reports/outbound/report_outb_prn.php?act=src&type=ext&SITE_ID=1&ORIG_DN=' + o_id;    
+    document.all('sort_me').submit();
+   }
+function CheckEmail (strng) {
+    var error="";
+    var emailFilter=/^.+@.+\..{2,3}$/;
+    if (!(emailFilter.test(strng))) { 
+       alert("Lütfen geçerli bir e-mail adresi giriniz.\n");
+       return 0;
+    }
+    else {
+       var illegalChars= /[\(\)\<\>\,\;\:\\\"\[\]]/
+       if (strng.match(illegalChars)) {
+             alert("Girdiğiniz e-mail geçersiz karakterler içermektedir.\n");
+             return 0;
+       }
+    }
+    return 1;
+}   
+ function mailPage(page){
+      var keyword = prompt("Lütfen bir mail adresi giriniz.", "")
+      if(CheckEmail(keyword)){
+          var pagename = "/reports/htmlmail.php?page=/temp/"+page+  "&email="+ keyword;
+          this.location.href = pagename;
+      }    
+   }   
+</script>  
+
+<TABLE BORDER="0" WIDTH="95%">
+            <TR>
+				<TD><a href="http://www.crystalinfo.com.tr" target="_blank"><img border="0" SRC="/images/logo2.gif" ></a></TD>
+				<TD width="50%" align=center CLASS="header">Netser Komunikasyon<BR>Dahili Özet Raporu<br>Çağrıların Tutar Bazında Dahililere Göre Dağılımı<BR>
+          
+				
+				Tarih Aralığı (01/02/2025								 - 12/02/2025				)<BR>
+
+				 
+				Departman : 
+				</TD>
+				<TD width="25%" align=right><img SRC="/images/company.gif"></TD>
+			</TR>
+            </TABLE>
+
+<br><br>
+<script LANGUAGE="javascript" src="/reports/scripts/jquery-3.5.1.js"></script>
+	<script LANGUAGE="javascript" src="/reports/scripts/jquery.dataTables.min.js"></script>
+	<script LANGUAGE="javascript" src="/reports/scripts/dataTables.buttons.min.js"></script>
+	<script LANGUAGE="javascript" src="/reports/scripts/jszip.min.js"></script>
+	<script LANGUAGE="javascript" src="/reports/scripts/pdfmake.min.js"></script>
+	<script LANGUAGE="javascript" src="/reports/scripts/vfs_fonts.js"></script>
+	<script LANGUAGE="javascript" src="/reports/scripts/buttons.html5.min.js"></script>
+	<script LANGUAGE="javascript" src="/reports/scripts/buttons.print.min.js"></script>
+	
+		<link rel="stylesheet" type="text/css" href="/reports/scripts/jquery.dataTables.min.css" />
+		<link rel="stylesheet" type="text/css" href="/reports/scripts/buttons.dataTables.min.css"/>
+		 
+		<script language="JavaScript">
+	//https://datatables.net/extensions/buttons/examples/initialisation/export.html
+	//https://datatables.net/reference/option/
+	 
+  $(document).ready(function() {
+    $('#export').DataTable( {
+		//scrollY: 600,
+        //paging: false,
+        dom: 'Bfrtip',
+		"pageLength": 100,
+        buttons: ['copy', 
+        {
+            extend: 'excelHtml5',
+            title: "Çağrıların Tutar Bazında Dahililere Göre Dağılımı"
+        },
+        {
+            extend: 'csvHtml5',
+            title: "Çağrıların Tutar Bazında Dahililere Göre Dağılımı"
+        }, 
+            'print', {text: "email",
+        action: function (e ,dt, node, config){
+          location.href = "javascript:mailPage('inbound.html')";
+        }} ]
+		
+    } );
+	} );
+  </script>	
+  <table id="export" class="display nowrap" style="width:100%">
+    <thead>
+      <tr>
+        <th>Dahili</th>
+	    	<th>Departman</th>
+        <th>Şehir İçi</th>
+        <th>Şehirler Arası</th>
+        <th>GSM</th>
+        <th>Uluslar Arası</th>
+        <th>Diğer</th>
+        <th>Toplam</th>
+      </tr>
+      </thead>
+      <tbody>
+            </tbody>
+      <tfoot>
+        <tr>
+          <th>Dahili</th>
+          <th>Departman</th>
+          <th>Şehir İçi</th>
+          <th>Şehirler Arası</th>
+          <th>GSM</th>
+          <th>Uluslar Arası</th>
+          <th>Diğer</th>
+          <th>Toplam</th>
+        </tr>
+      </tfoot>
+      </table>
+      <tr height="20">
+    <td></td>
+  </tr>
+  <tr>
+    <td height="22" colspan="3" width="100%" align="right">
+         <TABLE BORDER="0" WIDTH="100%">
+            <TR>
+              <TD WIDTH="80%" ALIGN="right"><b>Genel Toplam :</b></TD>
+              <TD WIDTH="20%" >0,00</TD>
+                                            </TR>
+         </TABLE>
+      </td>
+  </tr>
+    <tr>
+        <td></td>
+    </tr>
+</table>  
+

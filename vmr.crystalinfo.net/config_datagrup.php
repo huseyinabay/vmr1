@@ -1,0 +1,1 @@
+<?php $config["database"] = "DEPOSTOK"; $config["host"]= "localhost";$config["username"]= "root"; $config["password"]= "Omerim2014";?>

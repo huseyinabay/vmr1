@@ -1,0 +1,1105 @@
+/**********************************************************************************
+    Project Name: SimpleAdmin CMS Theme
+    Project Description: A clean admin theme
+    File Name: style.css
+    Author: Adi Purdila
+    Author URI: http://www.adipurdila.com
+    Version: 1.0.0
+**********************************************************************************/
+
+/* ---------- RESET ---------- */
+/* ---------- Based upon 'reset.css' in the 
+Yahoo! User Interface Library: 
+http://developer.yahoo.com/yui ---------- */
+
+*, html, body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, 
+h5, h6, pre, form, label, fieldset, input, p, blockquote, th, td {
+	margin: 0; /* Tüm varsayılan dış boşlukları sıfırlar */
+	padding: 0; /* Tüm varsayılan iç boşlukları sıfırlar */
+}
+
+table {
+	border-collapse: collapse; /* Hücreler arası boşlukları ortadan kaldırır */
+	border-spacing: 0;        /* Tarayıcılar arası tutarlılık sağlar */
+}
+
+fieldset, img {
+	border: 0; /* fieldset ve img etiketlerinin varsayılan kenarlıklarını sıfırlar */
+}
+
+address, caption, cite, code, dfn, em, strong, th, var {
+	font-style: normal; /* Tarayıcıların varsayılan italik vb. özelliklerini sıfırlar */
+	font-weight: normal; /* Aynı şekilde varsayılan kalınlıkları sıfırlar */
+}
+
+caption, th {
+	text-align: left; /* Başlıkların sola yaslanması */
+}
+
+h1, h2, h3, h4, h5, h6 {
+	font-weight: normal; /* Başlıklar için varsayılan kalınlığı sıfırlar */
+}
+
+q:before, q:after {
+	content: ''; /* Alıntı işaretlerini kaldırır */
+}
+
+strong {
+	font-weight: bold; /* strong etiketinde kalın yazı */
+}
+
+em {
+	font-style: italic; /* em etiketinde italik yazı */
+}
+
+a img {
+	border: none; /* Link içindeki imajların mavi çerçevesini kaldırır (özellikle IE) */
+}
+
+a {
+	text-decoration: none; /* Link alt çizgisini kaldırır */
+}
+
+body {
+	font-size: 1em; /* IE’de em birimlerinin ölçeklenmesiyle ilgili hatayı engeller */
+}
+
+
+
+/* ---------- CLEARFIX ---------- */
+/* Modern tarayıcılarda yüzen öğelerin ebeveynini kapatma hilesi */
+.cf:before,
+.cf:after {
+    content: "";
+    display: table;
+}
+
+.cf:after {
+	clear: both;
+}
+
+/* IE 6/7 uyumluluğu için (hasLayout tetikleyicisi) */
+.cf {
+	zoom: 1;
+}
+
+
+
+/* ---------- GENERAL ---------- */
+.round {
+	border-radius: 0.3125em; /* 5px (16px üzerinden) yuvarlatılmış kenarlar */
+	-moz-border-radius: 0.3125em; 
+	-webkit-border-radius: 0.3125em;
+}
+
+p {
+	margin-bottom: 1.25em; /* Paragraflar arasına 20px boşluk ekler */
+	color: #9498a1; /* Paragrafların metin rengi */
+}
+
+.fl { float: left; }  /* Elemanı sola yaslar */
+.fr { float: right; } /* Elemanı sağa yaslar */
+.cb { clear: both; }  /* Yüzen öğelerden sonra temizleme yapar */
+
+.half-size-column {
+	width: 48%; /* Yan yana iki sütun görünümü için yaklaşık yarım genişlik */
+}
+
+div.stripe-separator {
+	background: transparent url('../images/separator-bg.png') repeat-x left center; /* Yatay çizgi arkaplan */
+	height: 0.562em; /* Ayraç yüksekliği (~9px) */
+	display: block;
+	margin: 1.25em 0; /* Üst-alt boşluk 20px */
+}
+
+h1, h2, h3, h4, h5, h6 {
+	margin-bottom: 0.625em; /* Başlıkların alt boşluğu (~10px) */
+}
+
+/*Temporary styles*/
+ul.temporary-button-showcase {
+	list-style-type: none; /* Noktalı madde işaretlerini kaldırır */
+}
+
+ul.temporary-button-showcase li {
+	width: 24%;
+	float: left;
+	margin-bottom: 1em; /* Alt boşluk */
+}
+
+code {
+	display: inline-block;
+	background-color: #f8f9fa; /* Açık gri arkaplan */
+	border: 1px solid #eeefef;  /* Açık renkli çerçeve */
+	padding: 0.416em 0.833em;  /* İç boşluklar */
+	color: #2a2e36;            /* Metin rengi */
+}
+
+blockquote {
+	display: block;
+	font-style: italic;              /* İtalik yazı stili */
+	border-left: 2px solid #eeefef;  /* Sol tarafta dikey çizgi */
+	padding-left: 0.833em;           /* Soldan boşluk (10px civarı) */
+	color: #9498a1;                  /* Yazı rengi */
+}
+
+cite {
+	font-style: italic;
+	font-weight: bold;
+	display: block;
+	padding-left: 0.833em; /* 10px civarı soldan boşluk */
+	margin-top: 0.833em;   /* 10px civarı üst boşluk */
+	color: #9498a1;
+}
+
+
+
+/* ---------- TYPOGRAPHY ---------- */
+body, form {
+	font-family: "Droid Sans", Helvetica, Arial, sans-serif; /* Ana font ailesi */
+	line-height: 1.125em; /* Satır yüksekliği (18px civarı) */
+}
+
+p, .button, form input, ul#nav li ul, ul#tabs, div.side-menu ul li a, table,
+.information-box, .confirmation-box, .error-box, .error-message, .warning-box, ol, .regular-ul, 
+.custom-ul, blockquote, cite {
+	font-size: 0.85em; /* 12px civarı yazı boyutu */
+}
+
+div.content-module-heading span {
+	font-size: 0.625em; /* 10px civarı */
+}
+
+form p input[type="text"], form p input[type="password"],
+form p input[type="checkbox"], form p input[type="radio"] {
+	font-size: 1em; /* İçindeki etiketler 12px ise, input alanını 12px’de tutar */
+}
+
+h1 { font-size: 1.125em; /* ~18px */ }
+h2 { font-size: 0.875em; /* ~14px */ }
+h3 { font-size: 0.75em;  /* ~12px */ }
+h4 { font-size: 0.685em; /* ~11px */ }
+h5 { font-size: 0.625em; /* ~10px */ }
+
+.man {
+	color:#FF0000; /* Metin rengini kırmızı yapar */
+}
+
+
+
+/* ---------- COLORS ---------- */
+a {
+	color: #2069b4; /* Link rengi */
+}
+a:hover {
+	color: #2a2e36; /* Hover durumunda koyu gri */
+}
+
+p a, p a:hover {
+	border-bottom: 1px dotted; /* Paragraf içi linklere noktalı alt çizgi */
+}
+
+.blue {
+	background-color: #2069b4; /* Mavi arkaplan */
+	color: white;
+}
+.blue:hover {
+	background-color: #5081b3; /* Hover rengini açar */
+	color: white;
+}
+
+.orange {
+	background-color: #FFA500; /* Turuncu arkaplan */
+	color: white;
+}
+.orange:hover {
+	background-color: #FF8C00; /* Bir ton daha koyu turuncu */
+	color: white;
+}
+
+.green {
+	background-color: #008000; /* Yeşil arkaplan */
+	color: white;
+}
+.orange:hover { 
+	background-color: #7CFC00; /* Bu kısım muhtemelen green:hover olmalıydı, ancak orijinalde böyle */
+	color: white;
+}
+
+.red {
+	background-color: #990000; /* Koyu kırmızı arkaplan */
+	color: white;
+}
+.red:hover {
+	background-color: #FF0000; /* Daha parlak kırmızı */
+	color: white;
+}
+
+.my_text_box {
+	border: 1px solid #D9DBDD; /* Açık gri kenarlık */
+	width: 120px;
+	height: 30px;
+}
+.my_text_box:focus {
+	border: 1px solid #bbbdbe; /* Focus durumunda biraz daha koyu kenarlık */
+}
+
+.my_text_box1 {
+	border: 1px solid #D9DBDD;
+	width: 200px;
+	height: 30px;
+}
+.my_text_box1:focus {
+	border: 1px solid #bbbdbe;
+}
+
+.my_text_box2 {
+	border: 1px solid #D9DBDD;
+	width: 50px;
+	height: 30px;
+}
+.my_text_box2:focus {
+	border: 1px solid #bbbdbe;
+}
+
+.my_button {
+	height: 30px; 
+	padding: 0px 5px 0px 5px; /* Butonun yatay iç boşlukları */
+}
+
+.my_pagination {
+	border: 1px solid #bbbdbe;
+	padding: 0px 5px 0px 5px;
+	margin-left: 10px; /* Sol taraftan biraz boşluk */
+}
+
+
+
+/* ---------- WIDTHS ---------- */
+/* Form Inputs Style */
+.default-width-input {
+	width: 20.833em; /* ~250px, 12px font baz alarak */
+}
+
+.radio-text-input {
+	width: 4em; /* ~48px */
+	margin-left: -3mm; 
+	background-color: #f8f9fa; 
+}
+
+.radio-button-input {
+	width: 1em; /* ~12px */
+	margin-left: 3mm;
+	margin-right: -5mm;
+}
+
+.readonly-width-input {
+	width: 20.833em; /* 250px civarı */
+	color: #9498a1;  /* Pasif renk */
+	font-weight: bold;
+}
+
+.full-width-input {
+	width: 95%; /* Bulunduğu konteynerın %95’i kadar genişler */
+}
+
+/* Textarea Style */
+.full-width-textarea {
+	width: 100%;
+	height: 3.5em; /* ~150px */
+	
+}
+
+/* Page Container Style */
+.page-full-width {
+	padding: 0 0.4em; /* 0 ve 30px arasında yatay iç boşluk */
+}
+
+.page-limited {
+	width: 60em; /* ~960px */
+	margin: 0 auto; /* Ortalar */
+}
+
+
+
+/* ---------- BUTTONS ---------- */
+.button {
+	padding: 0.833em; /* 10px civarı dikey iç boşluk */
+	display: inline-block;
+	text-decoration: none;
+	background-repeat: no-repeat;
+	font-weight: bold;
+}
+
+.dark {
+	background-color: #3f4551; /* Koyu gri ton */
+	color: white;
+}
+.dark:hover {
+	background-color: #5d6677; /* Hover için daha açık gri */
+	color: white;
+}
+
+.text-upper {
+	text-transform: uppercase; /* Yazıyı büyük harfe dönüştürür */
+}
+
+.small-button {
+	padding: 0.312em 1em; /* Daha küçük iç boşluklar */
+}
+
+.image-left {
+	background-position: 0.833em center; /* Arka plan ikonu solda */
+	padding-left: 3em; /* Metin, ikonun yanına gelsin diye soldan boşluk */
+}
+
+.image-right {
+	background-position: right center; /* Arka plan ikonu sağda */
+	padding-right: 3em; 
+}
+
+/* İkonların background-image ayarları */
+.ic-left-arrow { background-image: url("../images/icons/ic_left.png"); }
+.ic-right-arrow { background-image: url("../images/icons/ic_right.png"); }
+.ic-print { background-image: url("../images/icons/ic_print.png"); }
+.ic-info { background-image: url("../images/icons/information.png"); }
+.ic-cancel { background-image: url("../images/icons/ic_cancel.png"); }
+.ic-delete { background-image: url("../images/icons/ic_delete.png"); }
+.ic-add { background-image: url("../images/icons/ic_add.png"); }
+.ic-download { background-image: url("../images/icons/ic_download.png"); }
+.ic-edit { background-image: url("../images/icons/ic_edit.png"); }
+.ic-favorite { background-image: url("../images/icons/ic_favorite.png"); }
+.ic-lock { background-image: url("../images/icons/ic_lock.png"); }
+.ic-power { background-image: url("../images/icons/ic_power.png"); }
+.ic-refresh { background-image: url("../images/icons/ic_refresh.png"); }
+.ic-settings { background-image: url("../images/icons/ic_settings.png"); }
+.ic-definitions { background-image: url("../images/icons/ic_definitions.png"); }
+.ic-upload { background-image: url("../images/icons/ic_upload.png"); }
+.ic-search { background-image: url("../images/icons/ic_zoom.png"); }
+
+.ic-table-view { background-image: url("../images/icons/table/actions-view.png"); }
+.ic-table-edit { background-image: url("../images/icons/table/actions-edit.png"); }
+.ic-table-delete { background-image: url("../images/icons/table/actions-delete.png"); }
+
+
+
+/* ---------- MENU BUTTONS ---------- */
+.menu-email { background-image: url("../images/icons/menu/menu-email.png"); }
+.menu-email:hover { background-image: url("../images/icons/menu/menu-email-over.png"); }
+.menu-email-special {
+	background-image: url("../images/icons/menu/menu-email-special.png");
+	color: #7fcdff; /* Farklı renk vurgusu */
+}
+
+.menu-settings { background-image: url("../images/icons/menu/menu-settings.png"); }
+.menu-settings:hover { background-image: url("../images/icons/menu/menu-settings-over.png"); }
+
+.menu-definitions { background-image: url("../images/icons/menu/menu-definitions.png"); }
+.menu-definitions:hover { background-image: url("../images/icons/menu/menu-definitions-over.png"); }
+
+.menu-logoff { background-image: url("../images/icons/menu/menu-logoff.png"); }
+.menu-logoff:hover { background-image: url("../images/icons/menu/menu-logoff-over.png"); }
+
+.menu-user { background-image: url("../images/icons/menu/menu-user.png"); }
+
+
+
+/* ---------- FORMS ---------- */
+form label {
+	display: block;           /* Label, satır atlayarak görünsün */
+	text-transform: uppercase;/* Label metnini büyük harf yapar */
+	color: #2a2e36;           /* Koyu gri metin rengi */
+	margin: 0 0 0.3125em 0;   /* Label altına hafif boşluk */
+}
+
+form label.alt-label {
+	text-transform: none; /* Bazı etiketlerin küçük harf kalmasını istediğimizde */
+}
+
+form input[type="text"],
+input[type="password"],
+textarea {
+	border: 1px solid #d9dbdd;      /* Gri kenarlık */
+	padding: 1em 0.625em;          /* Dikey ve yatay iç boşluk */
+	outline: none;                 /* Focus kenarlığını kaldırır (bazı tarayıcılarda) */
+}
+
+form input[type="text"]:hover,
+input[type="password"]:hover,
+textarea:hover,
+form input[type="text"]:focus,
+input[type="password"]:focus,
+textarea:focus {
+	border: 1px solid #bbbdbe; /* Hover/focus durumu için daha koyu kenarlık */
+}
+
+form input[type="checkbox"],
+form input[type="radio"] {
+	margin-right: 0.833em; /* Checkbox ve radio butonları arasına mesafe (10px) */
+}
+
+form input[type="submit"] {
+	border: none;
+	cursor: pointer; /* Tıklanabilir imleç */
+	padding: 0.833em; /* 10px civarı iç boşluk */
+	background-position: right center; /* Arka plan ikonu sağda */
+	padding-right: 3em; /* İkon boşluğu */
+	background-repeat: no-repeat;
+	font-weight: bold;
+	text-transform: uppercase; 
+}
+
+form#search-form input {
+	border: none; /* Arama kutusunda kenarlık yok */
+	padding-right: 3em; /* Arka plan ikonu ile metin arasında boşluk */
+}
+form#search-form input:focus {
+	background-color: #5d6677; /* .dark:hover rengine benzer */
+	color: white;              /* Yazıyı beyaz yapar */
+}
+
+form p em {
+	margin-top: 0.833em; /* 10px civarı boşluk */
+	display: block;
+}
+
+form p.form-error,
+form p.form-error label {
+	color: #cf4425; /* Hata mesajları için kırmızı */
+}
+
+form p.form-error em {
+	background: transparent url('../images/icons/message-boxes/error.png') no-repeat left center;
+	padding-left: 2em; /* İkon için soldan boşluk */
+}
+
+form input.error-input {
+	border: 1px solid #ff876f; /* Kırmızımsı kenarlık */
+}
+form input.error-input:hover {
+	border: 1px solid #b03e27; /* Daha koyu kırmızı hover */
+}
+
+/* HTML5 placeholder renklendirmesi */
+::-webkit-input-placeholder {
+	color: #858d9c; /* Chrome/Safari */
+}
+:-moz-placeholder {
+	color: #858d9c; /* Firefox */
+}
+
+
+
+/* ---------- CONTENT BOXES ---------- */
+.information-box, .confirmation-box, .error-box, .error-message, .warning-box {
+	padding: 0.833em 0.833em 0.833em 3em; /* 10px 10px 10px 36px */
+	margin-bottom: 0.833em; /* 10px alt boşluk */
+}
+
+.information-box {
+	background: #e5f5f9 url('../images/icons/message-boxes/information.png') no-repeat 0.833em center;
+	border: 1px solid #cae0e5;
+	color: #5a9bab;
+}
+
+.confirmation-box {
+	background: #e7fae6 url('../images/icons/message-boxes/confirmation.png') no-repeat 0.833em center;
+	border: 1px solid #b7cbb6;
+	color: #52964f;
+}
+
+.error-box, .error-message {
+	background: #fde8e4 url('../images/icons/message-boxes/error.png') no-repeat 0.833em center;
+	border: 1px solid #e6bbb3;
+	color: #cf4425;
+}
+
+.warning-box {
+	background: #fdf7e4 url('../images/icons/message-boxes/warning.png') no-repeat 0.833em center;
+	border: 1px solid #e5d9b2;
+	color: #b28a0b;
+}
+
+.error-message {
+	display:block; /* Hata mesajı blok düzende görünsün */
+}
+
+
+
+/* ---------- MENU ---------- */
+ul#nav {
+	list-style-type: none; /* Noktalı madde işaretini kaldır */
+}
+
+ul#nav > li {
+	float: left;
+	margin-right: 0.312em; /* 5px civarı */
+	position: relative;
+}
+/* İlk li elemanı için soldan margin kaldırma */
+ul#nav li:first-child { 
+	margin-left: 0; 
+}
+/* Hover durumunda alt menüyü görünür yap */
+ul#nav li:hover ul {
+	left: 0; 
+}
+
+/* Hover’daki linkler arka plan değişimi */
+ul#nav li:hover a {
+	background-color: #5d6677;
+	color: white;
+}
+
+ul#nav li.v-sep {
+	border-right: 1px solid #3f4551; /* Dikey ayraç */
+	margin-right: 0.625em; /* 10px */
+	padding-right: 0.625em; /* 10px */
+}
+
+ul#nav li ul {
+	list-style-type: none;
+	position: absolute;
+	z-index: 999;
+	margin-top: -2px; /* Üstten menüye yapışacak kadar */
+	left: -9999px;   /* Görünmez konumda başlar */
+}
+
+ul#nav li ul li a {
+	color: white;
+	padding: 0.833em 0 0.833em 3em; /* 10px üst-alt, 36px soldan */
+	border-top: 1px solid #6a7282;
+	background: #5d6677 url('../images/menu-indicator.png') no-repeat right center;
+	display: block;
+	width: 100%;
+	white-space: nowrap; /* Uzun metin taşmasın */
+}
+
+/* Alt menünün son öğesinin köşelerini yuvarla */
+ul#nav li ul li:last-child a {
+	border-bottom-right-radius: 0.3125em;
+	border-bottom-left-radius: 0.3125em;
+	-moz-border-bottom-right-radius: 0.3125em;
+	-moz-border-bottom-left-radius: 0.3125em;
+	-webkit-border-bottom-right-radius: 0.3125em;
+	-webkit-border-bottom-left-radius: 0.3125em;
+}
+
+ul#nav li ul li a:hover {
+	background-color: #7a8497; /* Hover renk */
+}
+
+
+
+/* ---------- TOP + HEADER ---------- */
+div#top-bar {
+	background-color: #2a2e36; /* En üst barın arka planı */
+	padding: 0.625em 0;       /* 10px dikey boşluk */
+}
+
+div#header {
+	padding: 1.25em 0; /* 20px dikey boşluk */
+}
+
+div#header-with-tabs {
+	padding: 1.25em 0 0 0; /* 20px üst, diğerleri 0 */
+}
+
+div#login-intro {
+	background: transparent url('../images/login-icon.png') no-repeat left center;
+	padding: 0.312em 0 0.312em 3.125em; /* 5px üst-alt, soldan ~50px */
+}
+div#login-intro h1 {
+	text-transform: uppercase; /* Büyük harflerle */
+	margin: 0.312em 0 0 0; /* Az bir üst boşluk */
+}
+div#login-intro h5 {
+	color: #9498a1; /* Gri alt yazı */
+}
+
+a#company-branding img {
+	height: 60px; /* Marka logosu yükseklik ayarı */
+}
+a#company-branding-small img {
+	height: 60px;
+}
+
+
+
+/* ---------- TABS ---------- */
+ul#tabs {
+	list-style-type: none;
+}
+
+ul#tabs li {
+	float: left;
+}
+
+ul#tabs li a {
+	border: 1px solid #eeefef;
+	border-bottom: none;
+	padding: 1.666em 0.833em; /* 20px 10px civarı */
+	margin: 0 0.416em -1px 0; 
+	display: block;
+	color: #9498a1;
+}
+ul#tabs li a:hover {
+	color: #2a2e36; /* Hover metin rengi */
+}
+
+/* Tab ikonu örnekleri (dashboard vb.) */
+ul#tabs li a.dashboard-tab {
+	background: transparent url('../images/tab-dashboard.png') no-repeat 0.833em center;
+	padding-left: 3em; 
+	width: 100x; /* Genişlik */
+
+}
+ul#tabs li a.sales-tab {
+	background: transparent url('../images/sales-icon.png') no-repeat 0.833em center;
+	padding-left: 3em;
+}
+ul#tabs li a.personals-tab {
+	background: transparent url('../images/personal-icon.png') no-repeat 0.833em center;
+	padding-left: 3em;
+}
+ul#tabs li a.purchase-tab {
+	background: transparent url('../images/purchase-icon.png') no-repeat 0.833em center;
+	padding-left: 3em;
+}
+ul#tabs li a.supplier-tab {
+	background: transparent url('../images/supplier-icon.png') no-repeat 0.833em center;
+	padding-left: 3em;
+}
+ul#tabs li a.stock-tab {
+	background: transparent url('../images/stock-icon.png') no-repeat 0.833em center;
+	padding-left: 3em;
+}
+ul#tabs li a.debits-tab {
+	background: transparent url('../images/debit.png') no-repeat 0.833em center;
+	padding-left: 3em;
+}
+ul#tabs li a.payment-tab {
+	background: transparent url('../images/payment-icon.png') no-repeat 0.833em center;
+	padding-left: 3em;
+}
+ul#tabs li a.report-tab {
+	background: transparent url('../images/report-icon.png') no-repeat 0.833em center;
+	padding-left: 3em;
+}
+
+
+ul#tabs li a.active-tab:hover {
+	background-color: #f8f9fa;
+	font-weight: bold;
+	color: #2a2e36;
+	
+}
+
+
+
+/* ---------- TABLES ---------- */
+table {
+	width: 100%;
+	margin-bottom: 1.25em; /* 20px alt boşluk */
+}
+
+table th {
+	background-color: #5d6677; /* Başlık satırında koyu gri */
+	color: white;
+	text-transform: uppercase;
+	padding: 1.25em 0 1.25em 1.25em; /* 20px soldan, 20px dikey */
+	border-left: 1px solid #747c8a; /* Sütunlar arası ince çizgi */
+}
+
+table tbody td {
+	padding: 0.833em 0 0.833em 1.25em; /* ~10px dikey, 20px soldan boşluk */
+	border-left: 1px solid white;
+	border-bottom: 1px solid #f8f9fa; /* Satırlar arasında açık gri çizgi */
+}
+
+/* Tek ve çift satırları ayırt etmek için zebra deseni */
+table tbody tr:nth-child(odd) {
+	background-color: #f8f9fa; /* Her tek sayılı satırda açık gri arka plan */
+}
+
+/* İlk sütun ayarları */
+table td:first-child,
+table th:first-child {
+	width: 4em; /* ~64px */
+	text-align: center;
+	padding: 0;
+	border: none;
+	border-bottom: 1px solid #f8f9fa;
+}
+
+/* Son sütun ayarları */
+table td:last-child,
+table th:last-child {
+	width: 7em; /* ~112px */
+	text-align: center;
+	padding: 0;
+}
+
+/* Tablo alt satırı için */
+table td.table-footer {
+	text-align: left;
+	vertical-align: middle;
+	padding-top: 1.25em; /* 20px */
+	border: none;
+}
+
+/* Tablo butonları (görüntüleme, düzenleme, silme vb.) */
+a.table-actions-button {
+	width: 1.25em;  /* ~20px */
+	height: 1.25em; /* ~20px */
+	display: inline-block;
+	background-position: center center;
+}
+
+
+/* ---------- FORM TABLES ---------- */
+table.form {
+	width: 400px;
+	margin-bottom: 1.25em; /* 20px */
+}
+
+table.form th {
+	background-color: #5d6677;
+	color: white;
+	text-transform: uppercase;
+	padding: 1.25em 0 1.25em 1.25em;
+	border-left: 1px solid #747c8a;
+}
+
+table.form tbody td {
+	padding: 0.833em 0 0.833em 1.25em;
+	border-left: 1px solid white;
+	border-bottom: 1px solid #f8f9fa;
+}
+
+table.form td,
+table.form th {
+	width: 4em;
+	text-align: left;
+	font-weight: 900;  /* Daha koyu */
+	padding: 0;
+	padding-left: 10px;
+	border: none;
+	border-bottom: 1px solid #f8f9fa;
+}
+
+table.form td:last-child,
+table th:last-child {
+	width: 7em;
+	text-align: left;
+	padding: 0;
+	padding-left: 10px;
+}
+
+table.form td.table-footer {
+	text-align: left;
+	vertical-align: middle;
+	padding-top: 1.25em;
+	border: none;
+}
+
+
+
+/* ---------- LISTS ---------- */
+ol li, .regular-ul li {
+	margin-left: 1.25em; /* 20px soldan */
+}
+
+ol, .regular-ul, .custom-ul {
+	margin-bottom: 1.25em; /* 20px alt boşluk */
+}
+
+.custom-ul {
+	list-style-type: none; /* Kendi ikonumuzu kullanmak için varsayılan madde işaretini kaldırır */
+}
+
+.custom-ul li {
+	background: transparent url('../images/menu-dark-indicator.png') no-repeat left center;
+	padding-left: 1.25em; /* 20px soldan */
+}
+
+
+
+/* ---------- CONTENT ---------- */
+div#content {
+	background: #f8f9fa url('../images/artwork-pattern.png') repeat-x left bottom;
+	border: 1px solid #eeefef;
+	padding: 0.50em 0; /* 8px dikey iç boşluk */
+}
+
+form#login-form {
+	width: 18.75em; /* ~300px */
+	margin: 0 auto; /* Ortalar */
+}
+
+div.side-menu {
+	background: #3f4551;
+	border: 1px solid #eeefef;
+	width: 15%;
+	margin-bottom: 1em; /* 16px alt boşluk */
+}
+
+div.side-menu h3 {
+	text-transform: uppercase;
+	font-weight: bold;
+	margin: 1.25em; /* 20px */
+	color: white;
+}
+
+div.side-menu ul {
+	list-style-type: none;
+}
+
+div.side-menu ul li a {
+	padding: 0.833em 1.25em; /* 10px ve 20px civarı */
+	border-top: 1px solid #f8f9fa;
+	display: block;
+	background: white url('../images/menu-dark-indicator.png') no-repeat right center;
+}
+div.side-menu ul li a:hover {
+	background-color: #f8f9fa;
+}
+
+div.side-content {
+	width: 83%; /* Yan menü 15%, arada 2% marj vs. */
+}
+
+div.content-module {
+	background: white;
+	margin-bottom: 1em; /* 16px */
+	border: 1px solid #eeefef;
+}
+
+div.content-module-heading {
+	background: #3f4551;
+	cursor: pointer;
+}
+
+div.content-module-heading h3 {
+	text-transform: uppercase;
+	color: white;
+	font-weight: bold;
+	margin: 1.25em; /* 20px */
+}
+
+div.content-module-heading span {
+	color: #969dac;
+	text-transform: uppercase;
+	margin: 1.5em;
+}
+
+div.content-module-main {
+	padding: 1em; /* 16px */
+}
+
+
+
+/* ---------- FOOTER ---------- */
+div#footer {
+	text-align: center;
+	padding: 1.875em 0; /* 30px */
+}
+
+.my_with {
+	width: 80px; /* ~80px genişlik */
+	padding: 2px; /* İç boşluklar */
+}
+
+.my_table tr td {
+	width: 80px; /* Tablo hücre genişliği */
+}
+
+
+/* ---------- Seçmeli menüler ---------- */
+.formRight select {
+	background: #FFFFFF;
+	border: 1px solid #E5E5E5;
+	border-radius: 5px;
+	box-shadow: 0 0 10px #E8E8E8 inset;
+	height: 40px;
+	margin: 50 150 0 20px; /* Sırasıyla üst, sağ, alt, sol */
+	padding: 10px;
+	width: 110px;
+}
+
+.redText {
+	color: red;
+}
+
+
+/* ---------- Dikey sidebar göster/gizle örneği ---------- */
+#map {
+	width: 100%;
+	height: 100%;
+	float: right;
+	/* border: 1px solid;  sınır örneği */
+}
+
+#sidebar {
+	width: 15%;
+	height: 80%;
+	float: left;
+	/* border: 1px solid;  sınır örneği */
+}
+
+#toggle {
+	width: 1.5%;
+	height: 40%;
+	margin-left: 0.5%;
+	margin-top: 0.5%;
+	float: left;
+}
+
+
+/* ---------- Sağ/Sol kaydırma butonu (switch) ---------- */
+.switch {
+	margin-left:10px;
+	position: relative;
+	display: inline-block;
+	width: 30px;
+	height: 17px;
+}
+
+.switch input {
+	display: none; /* Switch input gözükmesin */
+}
+
+
+.slider {
+	
+	position: absolutes;
+	cursor: pointer;
+	top: 0; left: 0; right: 0; bottom: 0;
+	background-color: #ccc; /* Kapalı durum rengi */
+	-webkit-transition: .4s;
+	transition: .4s;
+}
+
+.slider:before {
+	position: absolute;
+	content: "";
+	height: 13px;
+	width: 13px;
+	left: 2px;
+	bottom: 2px;
+	background-color: white;
+	-webkit-transition: .4s;
+	transition: .4s;
+}
+
+input:checked + .slider {
+	background-color: #2196F3; /* Açık mavi (aktif) */
+}
+
+input:focus + .slider {
+	box-shadow: 0 0 1px #2196F3;
+}
+
+input:checked + .slider:before {
+	-webkit-transform: translateX(13px);
+	-ms-transform: translateX(13px);
+	transform: translateX(13px);
+}
+
+/* Yuvarlak switch */
+.slider.round {
+	border-radius: 17px;
+	
+}
+
+.slider.round:before {
+	border-radius: 25%;
+}
+
+
+/* ---------- Şifre göster/gizle butonu ---------- */
+#toggle-password {
+	margin-left: 0px;
+	margin-top: 10px;
+	font-size: 14px;
+	border: 1px solid #ccc;
+	background-color: #f9f9f9;
+	cursor: pointer;
+}
+
+/* Şifre alanı ile buton arasındaki düzenleme */
+#login-password {
+	margin-top: -10px;
+	flex: 1; /* Alanın esnemesini sağlar */
+}
+
+@media (max-width: 768px) {
+    #content {
+        flex-direction: column; /* Mobilde dikey akış */
+    }
+}
+
+
+/* ---------- İki dilli (TR-EN) switch örneği ---------- */
+.switch {
+	
+	position: relative;
+	display: inline-block;
+	width: 50px;  /* Genişlik */
+	height: 27px; /* Yükseklik */
+	margin-top: 8px;
+}
+
+.switch input {
+	opacity: 10;
+	width: 0;
+	height: 0;
+}
+
+
+.slider {
+	position: absolute;
+	cursor: pointer;
+	top: 0; left: 0; right: 0; bottom: 0;
+	background-color: blue; /* Kapalı durum rengi */
+	transition: 0.s; /* Geçiş süresi */
+	border-radius: 27px;
+}
+
+.slider.round:before {
+	
+	position: absolute;
+	content: "";
+	height: 21px;
+	width: 21px;
+	left: 4px;
+	bottom: 3px;
+	background-color: white;
+	transition: 0.3s;
+	border-radius: 50%;
+}
+
+input:checked + .slider:before {
+	transform: translateX(21px);
+}
+
+input:checked + .slider {
+	background-color: red; /* Açık olduğunda kırmızı */
+}
+
+.lang-label {
+	position: absolute;
+	top: 50%;
+	transform: translateY(-50%);
+	font-size: 10px;
+	color: white;
+	font-weight: bold;
+}
+
+.lang-label.tr {
+	left: 9px; /* TR yazısı için konum */
+}
+
+.lang-label.en {
+	right: 9px; /* EN yazısı için konum */
+}

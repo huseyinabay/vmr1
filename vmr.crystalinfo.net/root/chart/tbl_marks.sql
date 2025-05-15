@@ -1,0 +1,72 @@
+-- phpMyAdmin SQL Dump
+-- version 4.2.11
+-- http://www.phpmyadmin.net
+--
+-- Host: 127.0.0.1
+-- Generation Time: Mar 29, 2018 at 11:30 AM
+-- Server version: 5.6.21
+-- PHP Version: 5.6.3
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET time_zone = "+00:00";
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8 */;
+
+--
+-- Database: `phppot`
+--
+-- --------------------------------------------------------
+--
+-- Table structure for table `tbl_marks`
+--
+
+CREATE TABLE IF NOT EXISTS `EXTENTIONS` (
+  `EXT_ID` INT(11) UNSIGNED NOT NULL AUTO_INCREMENT,
+  `SITE_ID` INT(5) UNSIGNED NOT NULL DEFAULT '1',
+  `EXT_NO` VARCHAR(10) NOT NULL DEFAULT '',
+  `EMAIL` VARCHAR(75) DEFAULT NULL,
+  `DEPT_ID` INT(10) UNSIGNED DEFAULT NULL,
+  `DESCRIPTION` VARCHAR(150) DEFAULT NULL,
+  `RESIDE_IN_EXTEN` TINYINT(3) UNSIGNED DEFAULT '1',
+  `SICIL_NO` VARCHAR(15) DEFAULT NULL,
+  PRIMARY KEY (`EXT_ID`),
+  KEY `NewIndex` (`EXT_NO`,`SITE_ID`)
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `tbl_marks`
+--
+
+INSERT INTO `EXTENTIONS` (`EXT_ID`, `DESCRIPTION``, `marks`) VALUES
+(1, 'Halil', 2238),
+(2, 'Samet ', 2246),
+(3, 'Yilmaz', 2265),
+(4, 'Ömer', 2290),
+(5, 'Alper', 2275);
+
+--
+-- Indexes for dumped tables
+--
+
+--
+-- Indexes for table `tbl_marks`
+--
+ALTER TABLE `EXTENTIONS`
+ ADD PRIMARY KEY (`EXT_ID`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `tbl_marks`
+--
+ALTER TABLE `EXTENTIONS`
+MODIFY `EXT_ID` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=6;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

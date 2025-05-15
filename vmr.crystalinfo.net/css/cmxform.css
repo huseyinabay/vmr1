@@ -1,0 +1,23 @@
+/**********************************
+
+Name: cmxform Styles
+
+***********************************/
+
+form.cmxform legend {
+	padding-left: 0;
+}
+
+/* Hata mesajlarının giriş kutusunun altında görünmesi için */
+
+
+form.cmxform label.error, label.error {
+	/* remove the next line when you have trouble in IE6 with labels in list */
+	color: red ;
+	font-style: italic;
+	display:inline block
+}
+div.error { display: none; }
+
+input:focus { border: 1px dotted black; }
+input.error {  }
